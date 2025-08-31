@@ -10,3 +10,7 @@
 - Tune motion via `--dur-medium` and `--ease-luxe` in `app/scss/_variables.scss`.
 - Adjust shadow intensity via `@mixin luxe-shadow` in `app/scss/_mixins.scss`.
 - Grain overlay utility `.grain-overlay` can be tweaked or disabled in `_effects.scss`.
+
+## v1.1.1
+- Enable mousewheel navigation with edge release for hero, product, and menu sliders.
+- Hook menu page section into reveal/parallax system for consistent scroll behavior.

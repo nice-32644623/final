@@ -20,16 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.Swiper) {
         new Swiper('.hero-swiper', {
             speed: 800,
-            mousewheel: { forceToAxis: true },
+            mousewheel: { forceToAxis: true, releaseOnEdges: true },
             watchSlidesProgress: true,
             pagination: { el: '.hero-pagination', clickable: true }
         });
         new Swiper('.products-swiper', {
             speed: 700,
+            mousewheel: { forceToAxis: true, releaseOnEdges: true },
             pagination: { el: '.products-pagination', clickable: true }
         });
         new Swiper('.menu-swiper', {
             speed: 700,
+            mousewheel: { forceToAxis: true, releaseOnEdges: true },
             pagination: { el: '.menu-pagination', clickable: true }
         });
     }
