@@ -1,0 +1,39 @@
+.nav a {
+  position: relative;
+  padding: $space-2 $space-3;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 100%; height: 1px;
+    background-color: var(--burgundy);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s var(--ease-luxe);
+  }
+  &:hover::after,
+  &:focus-visible::after,
+  &.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  &:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 2px; }
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: $space-2 $space-4;
+  background-color: var(--burgundy);
+  color: var(--white);
+  transition: transform 0.2s ease, box-shadow 0.3s var(--ease-luxe);
+  @include luxe-shadow;
+}
+
+.btn.js-magnetic { will-change: transform; }
+
+.u-tilt:hover { transform: rotate3d(0,0,1,1deg); }
+
+header.scrolled {
+  background-color: rgba($cream,0.95);
+}

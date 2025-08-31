@@ -1,0 +1,54 @@
+$cream: #fff9f5;
+$burgundy: #8c1c13;
+$ink: #000;
+$white: #fff;
+
+:root {
+  --cream: #fff9f5;
+  --burgundy: #8c1c13;
+  --ink: #000;
+  --white: #fff;
+
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-medium: 600ms;
+}
+
+$ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+$dur-medium: 600ms;
+
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 1rem;
+$space-4: 2rem;
+$space-5: 4rem;
+
+$z-header: 1000;
+
+$body-bg: $cream;
+$main-color: $burgundy;
+$txt-color: $ink;
+$txt-white: $white;
+
+$header-height: 128px;
+$header-shrink-height: 90px;
+$header-mobile-height: 90px;
+$header-mobile-shrink-height: 50px;
+
+$mobile-width: 600px;
+$tablet-width: 1024px;
+$border-radius: 30px;
+
+$font-family: "Signika", sans-serif;
+$font-heading: "Playfair Display", serif;
+
+$bg-linear: linear-gradient(
+    180deg,
+    #fef5f6 75.52%,
+    rgba(255, 255, 255, 0) 100%
+);
+
+$bg-linear-reverse: linear-gradient(
+    0deg,
+    #fef5f6 76.07%,
+    rgba(255, 255, 255, 0) 98.61%
+);

@@ -1,0 +1,5 @@
+.hero {
+  overflow: hidden;
+}
+.hero .swiper-pagination-bullet { background: var(--burgundy); opacity: 0.4; }
+.hero .swiper-pagination-bullet-active { opacity: 1; transform: scale(1.2); }

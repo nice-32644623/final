@@ -1,0 +1,27 @@
+@mixin hide-visually {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin respond($break) {
+  @if $break == mobile {
+    @media (max-width: 600px) { @content; }
+  } @else if $break == tablet {
+    @media (max-width: 1024px) { @content; }
+  }
+}
+
+@mixin fluid-type($min, $max) {
+  font-size: clamp($min, 1vw + $min, $max);
+}
+
+@mixin luxe-shadow {
+  box-shadow: 0 2px 4px rgba($burgundy,0.05), 0 8px 16px rgba($burgundy,0.08);
+}

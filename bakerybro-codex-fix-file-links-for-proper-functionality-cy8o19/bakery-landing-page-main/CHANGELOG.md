@@ -1,0 +1,12 @@
+# Changelog
+
+## v1.1.0
+- Introduced centralized SCSS variables and new modular partial structure.
+- Added motion/reveal utilities, magnetic buttons and custom cursor ring.
+- Implemented sticky blurred navigation and luxury shadow styles.
+- Parallax and IntersectionObserver driven reveals across sections.
+- New JavaScript for Swiper inertia, reveals, parallax and hover effects.
+- Buttons and key CTAs use `.js-magnetic` class.
+- Tune motion via `--dur-medium` and `--ease-luxe` in `app/scss/_variables.scss`.
+- Adjust shadow intensity via `@mixin luxe-shadow` in `app/scss/_mixins.scss`.
+- Grain overlay utility `.grain-overlay` can be tweaked or disabled in `_effects.scss`.
