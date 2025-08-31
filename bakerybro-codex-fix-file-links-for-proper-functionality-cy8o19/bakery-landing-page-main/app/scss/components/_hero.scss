@@ -1,0 +1,90 @@
+@use "../abstracts/" as *;
+
+.hero {
+    background-image: $bg-linear;
+
+    .swiper {
+        height: 100vh;
+
+        .swiper-slide {
+            @include flex(center, center);
+            position: relative;
+
+            .hero__slide__txt {
+                position: absolute;
+                top: 15%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 18rem;
+                font-weight: 700;
+                font-family: $font-heading;
+                color: $main-color;
+                pointer-events: none;
+
+                @include mobile {
+                    font-size: 8rem;
+                    top: 20%;
+                }
+            }
+
+            .hero__slide__img {
+                width: 12rem;
+                height: 12rem;
+                background: #e0e0e0;
+                position: relative;
+                transition: width 0.5s ease, height 0.5s ease;
+            }
+
+            .hero__slide__price {
+                position: absolute;
+                top: 1.5rem;
+                left: 1.5rem;
+                background: $main-color;
+                color: $txt-white;
+                padding: 0.4rem 1rem;
+                border-radius: 2rem;
+                font-size: 2rem;
+                font-family: $font-family;
+            }
+
+            .hero__slide__name {
+                position: absolute;
+                top: 50%;
+                left: calc(1.5rem + 5rem);
+                transform: translateY(-50%);
+                font-size: 2rem;
+                font-family: $font-family;
+                color: $main-color;
+            }
+        }
+
+        .swiper-slide-active {
+            .hero__slide__img {
+                width: 40rem;
+                height: 40rem;
+            }
+        }
+
+        .swiper-slide:not(.swiper-slide-active) {
+            .hero__slide__txt,
+            .hero__slide__price,
+            .hero__slide__name {
+                display: none;
+            }
+        }
+
+        .swiper-pagination-bullet {
+            width: 15px;
+            height: 15px;
+
+            &-active {
+                background-color: $main-color;
+            }
+
+            @include mobile {
+                width: 5px;
+                height: 5px;
+            }
+        }
+    }
+}

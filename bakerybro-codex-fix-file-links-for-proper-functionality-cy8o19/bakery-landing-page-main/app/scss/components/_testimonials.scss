@@ -1,0 +1,43 @@
+@use "../abstracts/" as *;
+
+.testimonials {
+    &__list {
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .testimonial {
+        background-color: rgba($txt-white, 0.9);
+        padding: 2rem;
+        border-radius: $border-radius;
+        box-shadow: 0 1rem 2rem rgba(#000, 0.05);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: "\201C";
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            color: rgba($main-color, 0.15);
+        }
+
+        &__quote {
+            font-family: $font-heading;
+            font-size: 2rem;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        &__author {
+            margin-top: 1.5rem;
+            font-size: 1.6rem;
+            color: $main-color;
+            font-weight: 600;
+        }
+    }
+}

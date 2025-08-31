@@ -1,0 +1,43 @@
+@use "../abstracts/" as *;
+
+.section__footer {
+    background-color: $main-color;
+    color: $txt-white;
+}
+
+.footer {
+    @include flex(center, center);
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    padding: 4rem 0;
+
+    &__logo {
+        img {
+            max-width: 180px;
+            height: auto;
+        }
+    }
+
+    &__nav {
+        @include flex(center, center);
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        a {
+            color: $txt-white;
+            font-family: $font-heading;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $body-bg;
+            }
+        }
+    }
+
+    &__copy {
+        font-size: 1.4rem;
+        color: rgba($txt-white, 0.7);
+    }
+}
+

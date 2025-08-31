@@ -1,0 +1,53 @@
+@use "../abstracts/" as *;
+
+.menu {
+    background-image: $bg-linear;
+
+    .swiper {
+        height: 100vh;
+
+        .menu__slide {
+            @include flex(center, center);
+            flex-direction: column;
+            text-align: center;
+            height: 100%;
+            gap: 2rem;
+
+            &__img {
+                width: 60%;
+                max-width: 600px;
+                aspect-ratio: 1 / 1;
+                background: #ccc;
+                margin: 0 auto;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+            }
+
+            &__title {
+                font-family: $font-heading;
+                font-size: 4rem;
+                color: $main-color;
+
+                @include mobile {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+        .swiper-pagination-bullet {
+            width: 15px;
+            height: 15px;
+            background-color: #ccc;
+            opacity: 1;
+
+            &-active {
+                background-color: $main-color;
+            }
+        }
+    }
+}

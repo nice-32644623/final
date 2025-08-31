@@ -1,0 +1,30 @@
+@use "../abstracts/" as *;
+
+.cta {
+    background-color: $main-color;
+    color: $txt-white;
+    text-align: center;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        font-family: $font-heading;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        background-color: $txt-white;
+        color: $main-color;
+        box-shadow: 0 4px 23px 6px rgba($txt-white, 0.4);
+
+        &:hover {
+            box-shadow: 0 4px 23px 12px rgba($txt-white, 0.6);
+        }
+    }
+}
