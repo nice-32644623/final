@@ -29,3 +29,8 @@
 - Add responsive container and section spacing for mobile and tablet viewports.
 - Introduce fluid typography scale and desktop breakpoint helper.
 - Tweak navigation and button styles for better small-screen usability.
+
+## v1.1.6
+- Improve mobile responsiveness with toggleable navigation drawer and refined header layout.
+- Prevent tiny product tiles by keeping base font-size at 100% and limiting mobile grid to two columns.
+- Add Swiper breakpoints for product and menu carousels to ensure one-item views on small screens.

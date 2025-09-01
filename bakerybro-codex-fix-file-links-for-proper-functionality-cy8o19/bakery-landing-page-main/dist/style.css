@@ -32,12 +32,7 @@ html {
 
 @media only screen and (max-width: 1024px) {
   html {
-    font-size: 80%;
-  }
-}
-@media only screen and (max-width: 600px) {
-  html {
-    font-size: 60%;
+    font-size: 90%;
   }
 }
 body {
@@ -70,6 +65,16 @@ img {
   position: relative;
 }
 
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
 .section {
   padding: 6rem 0;
   position: relative;
@@ -97,7 +102,7 @@ img {
 }
 
 .mobile-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -446,7 +451,8 @@ header.hide {
 
 @media only screen and (max-width: 600px) {
   .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
   }
 }
 .product-card {
@@ -889,9 +895,35 @@ section {
 }
 @media (max-width: 600px) {
   .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--cream);
+    border: 1px solid rgba(140, 28, 19, 0.2);
+    display: none;
+  }
+  .nav.active {
+    display: flex;
+  }
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-toggle {
+  display: none;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .mobile-toggle {
+    display: block;
   }
 }
 

@@ -24,10 +24,30 @@
   display: flex;
   gap: $space-3;
   @include respond(mobile) {
+    position: absolute;
+    top: 100%;
+    right: 0;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: $space-2;
+    padding: $space-3;
+    background-color: var(--cream);
+    border: 1px solid rgba($burgundy, 0.2);
+    display: none;
+    &.active { display: flex; }
   }
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-toggle {
+  display: none;
+  cursor: pointer;
+  @include respond(mobile) { display: block; }
 }
 
 .btn {

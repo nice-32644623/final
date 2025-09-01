@@ -14,11 +14,7 @@ html {
     scroll-snap-type: y mandatory;
 
     @include tablet {
-        font-size: 80%;
-    }
-
-    @include mobile {
-        font-size: 60%;
+        font-size: 90%;
     }
 }
 
@@ -50,6 +46,8 @@ img {
     margin: auto;
     padding: 0 2rem;
     position: relative;
+    @include tablet { padding: 0 1.5rem; }
+    @include mobile { padding: 0 1rem; }
 }
 
 .section {
@@ -78,8 +76,9 @@ img {
     }
 }
 
+
 .mobile-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

@@ -43,12 +43,22 @@ document.addEventListener('DOMContentLoaded', () => {
         wheelify('.products-swiper', {
             speed: 700,
             mousewheel: { forceToAxis: true, releaseOnEdges: true },
-            pagination: { el: '.products-pagination', clickable: true }
+            pagination: { el: '.products-pagination', clickable: true },
+            slidesPerView: 1,
+            breakpoints: {
+                600: { slidesPerView: 2 },
+                1024: { slidesPerView: 4 }
+            }
         });
         wheelify('.menu-swiper', {
             speed: 700,
             mousewheel: { forceToAxis: true, releaseOnEdges: true },
-            pagination: { el: '.menu-pagination', clickable: true }
+            pagination: { el: '.menu-pagination', clickable: true },
+            slidesPerView: 1,
+            breakpoints: {
+                600: { slidesPerView: 2 },
+                1024: { slidesPerView: 4 }
+            }
         });
     }
 
