@@ -20,6 +20,16 @@
   &:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 2px; }
 }
 
+.nav {
+  display: flex;
+  gap: $space-3;
+  @include respond(mobile) {
+    flex-direction: column;
+    align-items: center;
+    gap: $space-2;
+  }
+}
+
 .btn {
   position: relative;
   display: inline-block;
@@ -28,6 +38,10 @@
   color: var(--white);
   transition: transform 0.2s ease, box-shadow 0.3s var(--ease-luxe);
   @include luxe-shadow;
+  @include respond(mobile) {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .btn.js-magnetic { will-change: transform; }

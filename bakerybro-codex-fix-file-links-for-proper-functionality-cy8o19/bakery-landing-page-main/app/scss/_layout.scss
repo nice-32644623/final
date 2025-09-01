@@ -2,8 +2,12 @@
   max-width: 1577px;
   margin: 0 auto;
   padding: 0 $space-4;
+  @include respond(tablet) { padding: 0 $space-3; }
+  @include respond(mobile) { padding: 0 $space-2; }
 }
 
 section {
   padding: $space-5 0;
+  @include respond(tablet) { padding: $space-4 0; }
+  @include respond(mobile) { padding: $space-3 0; }
 }

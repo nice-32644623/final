@@ -2,6 +2,7 @@ body {
   color: var(--ink);
   font-family: 'Signika', sans-serif;
   line-height: 1.6;
+  @include fluid-type(1rem, 1.125rem);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9,6 +10,13 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--burgundy);
   letter-spacing: 0.02em;
 }
+
+h1 { @include fluid-type(2.5rem, 3.5rem); }
+h2 { @include fluid-type(2rem, 3rem); }
+h3 { @include fluid-type(1.75rem, 2.5rem); }
+h4 { @include fluid-type(1.5rem, 2rem); }
+h5 { @include fluid-type(1.25rem, 1.5rem); }
+h6 { @include fluid-type(1rem, 1.25rem); }
 
 .small-caps {
   font-variant: all-small-caps;

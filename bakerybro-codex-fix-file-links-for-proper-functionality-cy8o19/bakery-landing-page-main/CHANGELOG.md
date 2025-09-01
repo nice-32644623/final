@@ -24,3 +24,8 @@
 ## v1.1.4
 - Polish sticky header with translucent blur, hairline border, and highlight edge.
 - Throttle parallax transforms with `requestAnimationFrame` for smoother scrolling.
+
+## v1.1.5
+- Add responsive container and section spacing for mobile and tablet viewports.
+- Introduce fluid typography scale and desktop breakpoint helper.
+- Tweak navigation and button styles for better small-screen usability.
