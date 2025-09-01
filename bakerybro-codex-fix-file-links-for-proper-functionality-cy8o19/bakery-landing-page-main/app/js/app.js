@@ -18,18 +18,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (window.Swiper) {
-        new Swiper('.hero-swiper', {
+        const wheelify = (selector, opts = {}) => {
+            const el = document.querySelector(selector);
+            if (!el) return null;
+            const swiper = new Swiper(el, opts);
+            el.addEventListener('wheel', e => {
+                if (e.deltaY > 0 && !swiper.isEnd) {
+                    e.preventDefault();
+                    swiper.slideNext();
+                } else if (e.deltaY < 0 && !swiper.isBeginning) {
+                    e.preventDefault();
+                    swiper.slidePrev();
+                }
+            }, { passive: false });
+            return swiper;
+        };
+
+        wheelify('.hero-swiper', {
             speed: 800,
             mousewheel: { forceToAxis: true, releaseOnEdges: true },
             watchSlidesProgress: true,
             pagination: { el: '.hero-pagination', clickable: true }
         });
-        new Swiper('.products-swiper', {
+        wheelify('.products-swiper', {
             speed: 700,
             mousewheel: { forceToAxis: true, releaseOnEdges: true },
             pagination: { el: '.products-pagination', clickable: true }
         });
-        new Swiper('.menu-swiper', {
+        wheelify('.menu-swiper', {
             speed: 700,
             mousewheel: { forceToAxis: true, releaseOnEdges: true },
             pagination: { el: '.menu-pagination', clickable: true }

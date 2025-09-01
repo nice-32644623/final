@@ -14,3 +14,6 @@
 ## v1.1.1
 - Enable mousewheel navigation with edge release for hero, product, and menu sliders.
 - Hook menu page section into reveal/parallax system for consistent scroll behavior.
+
+## v1.1.2
+- Fix mousewheel not advancing slides on hero and menu carousels.
