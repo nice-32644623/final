@@ -34,6 +34,19 @@
 
 .u-tilt:hover { transform: rotate3d(0,0,1,1deg); }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  border-bottom: 0.5px solid transparent;
+  background-color: transparent;
+  backdrop-filter: none;
+  transition: background-color 0.3s var(--ease-luxe), backdrop-filter 0.3s var(--ease-luxe), border-color 0.3s var(--ease-luxe);
+}
+
 header.scrolled {
-  background-color: rgba($cream,0.95);
+  background-color: rgba($cream,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba($burgundy,0.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
 }

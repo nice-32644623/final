@@ -20,3 +20,7 @@
 
 ## v1.1.3
 - Refine custom cursor with smooth trailing motion and scale feedback on hover and click.
+
+## v1.1.4
+- Polish sticky header with translucent blur, hairline border, and highlight edge.
+- Throttle parallax transforms with `requestAnimationFrame` for smoother scrolling.

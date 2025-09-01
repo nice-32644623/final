@@ -113,12 +113,25 @@ document.addEventListener('DOMContentLoaded', () => {
         revealEls.forEach(el => io.observe(el));
 
         const depthEls = document.querySelectorAll('[data-depth]');
-        window.addEventListener('scroll', () => {
-            const y = window.scrollY;
-            depthEls.forEach(el => {
-                const d = parseFloat(el.dataset.depth || 0);
-                el.style.transform = `translate3d(0, ${y * d}px, 0)`;
-            });
-        });
+        if (depthEls.length) {
+            let latestY = window.scrollY;
+            let ticking = false;
+            const update = () => {
+                depthEls.forEach(el => {
+                    const d = parseFloat(el.dataset.depth || 0);
+                    el.style.transform = `translate3d(0, ${latestY * d}px, 0)`;
+                });
+                ticking = false;
+            };
+            const onScroll = () => {
+                latestY = window.scrollY;
+                if (!ticking) {
+                    requestAnimationFrame(update);
+                    ticking = true;
+                }
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            update();
+        }
     }
 });
