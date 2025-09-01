@@ -34,3 +34,7 @@
 - Improve mobile responsiveness with toggleable navigation drawer and refined header layout.
 - Prevent tiny product tiles by keeping base font-size at 100% and limiting mobile grid to two columns.
 - Add Swiper breakpoints for product and menu carousels to ensure one-item views on small screens.
+
+## v1.1.7
+- Ensure sections remain visible without JavaScript by gating reveal transitions behind `.has-js`.
+- Attach `.has-js` class on load to enable animated reveals.

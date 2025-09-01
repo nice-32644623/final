@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.classList.add('has-js');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const header = document.querySelector('header');
     const toggle = document.querySelector('.mobile-toggle');

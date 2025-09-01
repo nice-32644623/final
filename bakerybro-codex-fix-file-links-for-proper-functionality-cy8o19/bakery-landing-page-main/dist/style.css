@@ -817,12 +817,17 @@ section {
   }
 }
 [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+.has-js [data-reveal] {
   opacity: 0;
   transform: translateY(1rem);
   transition: opacity var(--dur-medium) var(--ease-luxe), transform var(--dur-medium) var(--ease-luxe);
 }
 
-[data-reveal].is-inview {
+.has-js [data-reveal].is-inview {
   opacity: 1;
   transform: none;
 }
@@ -857,7 +862,7 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
+  .has-js [data-reveal] {
     transition: none;
   }
   .cursor-ring {
