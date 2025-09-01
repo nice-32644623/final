@@ -38,3 +38,7 @@
 ## v1.1.7
 - Ensure sections remain visible without JavaScript by gating reveal transitions behind `.has-js`.
 - Attach `.has-js` class on load to enable animated reveals.
+
+## v1.1.8
+- Correct mobile product grid to single-column layout and scale text for readability on small screens.
+- Adjust menu slider images and titles to size fluidly across viewports.

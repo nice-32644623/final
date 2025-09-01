@@ -2,18 +2,20 @@
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: $space-4;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 
     @include mobile {
-        grid-template-columns: repeat(2, 1fr);
-        gap: $space-2;
+        grid-template-columns: 1fr;
+        gap: $space-3;
     }
 }
 
 .product-card {
-    padding: 3rem;
+    padding: $space-4;
     border-radius: $border-radius;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background-color: var(--cream);
+    transition: box-shadow 0.3s var(--ease-luxe), transform 0.3s var(--ease-luxe);
 
     &:hover {
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -23,24 +25,41 @@
     &__img {
         position: relative;
 
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .btn-wraper {
             position: absolute;
             bottom: 0;
             left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            transform: translate(-50%, 100%);
+            transition: transform 0.4s var(--ease-luxe);
         }
     }
 
     &:hover &__img .btn-wraper {
-        opacity: 1;
+        transform: translate(-50%, 0);
     }
 
     &__price,
     &__name {
-        font-size: 2rem;
-        margin-top: 1rem;
+        margin-top: $space-2;
         text-align: center;
+    }
+
+    &__price {
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+
+    &__name { font-size: 1rem; }
+
+    @include mobile {
+        padding: $space-3;
+        &__price { font-size: 1rem; }
+        &__name { font-size: 0.875rem; }
     }
 }

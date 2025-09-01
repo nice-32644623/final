@@ -6,12 +6,21 @@
     .swiper {
         height: 100vh;
 
+        @include mobile {
+            height: auto;
+        }
+
         .menu__slide {
             @include flex(center, center);
             flex-direction: column;
             text-align: center;
             height: 100%;
-            gap: 2rem;
+            gap: $space-4;
+            padding: $space-5 0;
+
+            @include mobile {
+                gap: $space-3;
+            }
 
             &__img {
                 width: 60%;
@@ -19,6 +28,10 @@
                 aspect-ratio: 1 / 1;
                 background: #ccc;
                 margin: 0 auto;
+
+                @include mobile {
+                    width: 80%;
+                }
 
                 img {
                     width: 100%;
@@ -30,12 +43,8 @@
 
             &__title {
                 font-family: $font-heading;
-                font-size: 4rem;
                 color: $main-color;
-
-                @include mobile {
-                    font-size: 2.5rem;
-                }
+                font-size: clamp(2rem, 5vw, 4rem);
             }
         }
 
