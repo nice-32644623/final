@@ -56,8 +56,39 @@ document.addEventListener('DOMContentLoaded', () => {
         const ring = document.createElement('div');
         ring.className = 'cursor-ring';
         document.body.appendChild(ring);
+
+        let ringX = window.innerWidth / 2;
+        let ringY = window.innerHeight / 2;
+        let mouseX = ringX;
+        let mouseY = ringY;
+        let targetScale = 1;
+        let currentScale = 1;
+        let visible = false;
+
+        const render = () => {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            currentScale += (targetScale - currentScale) * 0.2;
+            ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) scale(${currentScale})`;
+            requestAnimationFrame(render);
+        };
+        render();
+
         document.addEventListener('mousemove', e => {
-            ring.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!visible) {
+                ring.style.opacity = '1';
+                visible = true;
+            }
+        });
+
+        document.addEventListener('mousedown', () => { targetScale = 0.85; });
+        document.addEventListener('mouseup', () => { targetScale = 1; });
+
+        document.querySelectorAll('a, button, .js-magnetic').forEach(el => {
+            el.addEventListener('mouseenter', () => { targetScale = 1.6; });
+            el.addEventListener('mouseleave', () => { targetScale = 1; });
         });
 
         document.querySelectorAll('.js-magnetic').forEach(el => {

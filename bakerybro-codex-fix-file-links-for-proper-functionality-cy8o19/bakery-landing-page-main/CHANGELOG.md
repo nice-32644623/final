@@ -17,3 +17,6 @@
 
 ## v1.1.2
 - Fix mousewheel not advancing slides on hero and menu carousels.
+
+## v1.1.3
+- Refine custom cursor with smooth trailing motion and scale feedback on hover and click.
