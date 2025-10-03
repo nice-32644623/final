@@ -1,6 +1,37 @@
-.hero {
-  overflow: hidden;
-  @include respond(mobile) { min-height: 60vh; }
+.index-page .hero {
+  padding-top: clamp(4rem, 8vh, 6rem);
 }
-.hero .swiper-pagination-bullet { background: var(--burgundy); opacity: 0.4; }
-.hero .swiper-pagination-bullet-active { opacity: 1; transform: scale(1.2); }
+
+.menu-page .menu,
+.about-page .about,
+.contact-page .contact {
+  padding-top: clamp(3rem, 6vh, 4.5rem);
+}
+
+.about-page .timeline {
+  position: relative;
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+}
+
+.about-page .timeline::before {
+  content: '';
+  position: absolute;
+  left: clamp(0.3rem, 2vw, 0.8rem);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, rgba($burgundy, 0.45), rgba($burgundy, 0));
+}
+
+.contact-page .contact__map iframe {
+  border-radius: $radius-lg;
+  border: none;
+  width: 100%;
+  min-height: 320px;
+}
+
+@include respond('md') {
+  .about-page .timeline {
+    padding-left: $space-5;
+  }
+}

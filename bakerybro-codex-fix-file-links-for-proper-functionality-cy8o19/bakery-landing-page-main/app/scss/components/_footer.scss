@@ -1,43 +1,45 @@
-@use "../abstracts/" as *;
-
 .section__footer {
-    background-color: $main-color;
-    color: $txt-white;
+  background: linear-gradient(180deg, rgba($burgundy, 0.92), rgba($burgundy, 0.75));
+  color: $white;
 }
 
 .footer {
-    @include flex(center, center);
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-    padding: 4rem 0;
-
-    &__logo {
-        img {
-            max-width: 180px;
-            height: auto;
-        }
-    }
-
-    &__nav {
-        @include flex(center, center);
-        gap: 2rem;
-        flex-wrap: wrap;
-
-        a {
-            color: $txt-white;
-            font-family: $font-heading;
-            transition: color 0.3s ease;
-
-            &:hover {
-                color: $body-bg;
-            }
-        }
-    }
-
-    &__copy {
-        font-size: 1.4rem;
-        color: rgba($txt-white, 0.7);
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-5;
+  text-align: center;
 }
 
+.footer__logo img {
+  max-width: 180px;
+}
+
+.footer__nav {
+  display: flex;
+  gap: $space-4;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer__nav a {
+  color: rgba($white, 0.85);
+  font-family: $font-heading;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: color $dur-quick $ease-snappy;
+}
+
+@include hover-media {
+  .footer__nav a:hover {
+    color: $cream;
+  }
+}
+
+.footer__copy {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba($white, 0.7);
+}

@@ -42,3 +42,9 @@
 ## v1.1.8
 - Correct mobile product grid to single-column layout and scale text for readability on small screens.
 - Adjust menu slider images and titles to size fluidly across viewports.
+
+## v1.2.0
+- Rebuilt SCSS tokens and layout primitives for consistent spacing, shadows, and responsive typography across all pages.
+- Redesigned hero, menu, about, testimonials, and contact sections with clamp-based sizing and mobile-first grids.
+- Upgraded navigation drawer, sticky header polish, and mobile overlay handling with improved accessibility hooks.
+- Refined JavaScript to manage snap scrolling, mobile nav state, and Swiper breakpoints while keeping custom cursor and reveal effects performant.

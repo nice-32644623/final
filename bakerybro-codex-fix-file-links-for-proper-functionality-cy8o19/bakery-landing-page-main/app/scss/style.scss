@@ -1,2 +1,11 @@
-@forward "./global";
-@forward "./components/";
+@import './global';
+@import './components/header';
+@import './components/button';
+@import './components/hero';
+@import './components/product';
+@import './components/menu';
+@import './components/about';
+@import './components/testimonials';
+@import './components/cta';
+@import './components/contact';
+@import './components/footer';

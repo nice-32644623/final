@@ -1,62 +1,91 @@
-@use "../abstracts/" as *;
-
 .menu {
-    background-image: $bg-linear;
+  background: linear-gradient(180deg, rgba($cream, 0.95) 0%, rgba($cream, 0.7) 100%);
+}
 
-    .swiper {
-        height: 100vh;
+.menu .swiper {
+  width: 100%;
+  height: clamp(420px, 70vh, 600px);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
 
-        @include mobile {
-            height: auto;
-        }
+.menu .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 6vw, 4rem);
+}
 
-        .menu__slide {
-            @include flex(center, center);
-            flex-direction: column;
-            text-align: center;
-            height: 100%;
-            gap: $space-4;
-            padding: $space-5 0;
+.menu__slide {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 320px);
+  gap: clamp(2rem, 6vw, 4rem);
+  width: 100%;
+}
 
-            @include mobile {
-                gap: $space-3;
-            }
+.menu__slide__img {
+  position: relative;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at 20% 20%, rgba($white, 0.9), rgba($burgundy, 0.12));
+  box-shadow: $shadow-soft;
+}
 
-            &__img {
-                width: 60%;
-                max-width: 600px;
-                aspect-ratio: 1 / 1;
-                background: #ccc;
-                margin: 0 auto;
+.menu__slide__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
 
-                @include mobile {
-                    width: 80%;
-                }
+.menu__slide__title {
+  font-family: $font-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: $burgundy;
+}
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                }
-            }
+.menu .swiper-pagination {
+  position: static;
+  display: flex;
+  justify-content: center;
+  gap: $space-3;
+}
 
-            &__title {
-                font-family: $font-heading;
-                color: $main-color;
-                font-size: clamp(2rem, 5vw, 4rem);
-            }
-        }
+.menu .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba($burgundy, 0.26);
+  opacity: 1;
+  transition: transform $dur-medium $ease-luxe, background $dur-medium $ease-luxe;
+}
 
-        .swiper-pagination-bullet {
-            width: 15px;
-            height: 15px;
-            background-color: #ccc;
-            opacity: 1;
+.menu .swiper-pagination-bullet-active {
+  background: rgba($burgundy, 0.9);
+  transform: scale(1.25);
+}
 
-            &-active {
-                background-color: $main-color;
-            }
-        }
-    }
+@include respond('md') {
+  .menu__slide {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .menu__slide__img {
+    width: min(75vw, 320px);
+    margin-inline: auto;
+  }
+}
+
+@include respond('xs') {
+  .menu .swiper {
+    height: auto;
+  }
+
+  .menu .swiper-slide {
+    padding: $space-5 $space-3;
+  }
 }

@@ -1,13 +1,214 @@
 .container {
-  max-width: 1577px;
-  margin: 0 auto;
-  padding: 0 $space-4;
-  @include respond(tablet) { padding: 0 $space-3; }
-  @include respond(mobile) { padding: 0 $space-2; }
+  width: min(100% - 2 * $space-6, 1200px);
+  margin-inline: auto;
+  position: relative;
+
+  @include respond('lg') {
+    width: min(100% - 2 * $space-5, 1120px);
+  }
+
+  @include respond('md') {
+    width: min(100% - 2 * $space-4, 960px);
+  }
+
+  @include respond('sm') {
+    width: min(100% - 2 * $space-4, 720px);
+  }
+
+  @include respond('xs') {
+    width: min(100% - 2 * $space-3, 640px);
+  }
 }
 
-section {
-  padding: $space-5 0;
-  @include respond(tablet) { padding: $space-4 0; }
-  @include respond(mobile) { padding: $space-3 0; }
+section,
+.section {
+  @include section-spacing($space-7, $space-9);
+  position: relative;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: min(100vh, 860px);
+  display: flex;
+  align-items: center;
+}
+
+@include respond('md') {
+  .snap-section {
+    min-height: auto;
+    scroll-snap-align: none;
+    display: block;
+  }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  background: rgba($cream, 0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: $border-width-hairline solid rgba($burgundy, 0.28);
+  transition: background-color $dur-medium $ease-luxe, backdrop-filter $dur-medium $ease-luxe, border-color $dur-medium $ease-luxe, box-shadow $dur-medium $ease-luxe;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba($white, 0.6) 0%, rgba($white, 0) 60%);
+  opacity: 0;
+  transition: opacity $dur-medium $ease-luxe;
+}
+
+header.scrolled {
+  background: rgba($cream, 0.96);
+  box-shadow: 0 18px 36px rgba($burgundy, 0.12);
+}
+
+header.scrolled::after {
+  opacity: 1;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-5;
+  padding-block: clamp(0.9rem, 1.4vw, 1.5rem);
+}
+
+.logo {
+  font-family: $font-heading;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  @include fluid-type(1.4rem, 2.1rem);
+  color: $burgundy;
+  text-transform: uppercase;
+}
+
+.mobile-toggle {
+  @include button-reset;
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: $burgundy;
+  background: rgba($white, 0.6);
+  box-shadow: inset 0 0 0 $border-width-hairline rgba($burgundy, 0.2);
+  transition: transform $dur-quick $ease-snappy, box-shadow $dur-quick $ease-snappy;
+
+  @include respond('md') {
+    display: inline-flex;
+  }
+
+  @include hover-media {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: inset 0 0 0 $border-width-hairline rgba($burgundy, 0.4), 0 8px 18px rgba($burgundy, 0.12);
+    }
+  }
+
+  &:focus-visible {
+    @include focus-ring();
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2.5rem);
+  transition: opacity $dur-medium $ease-luxe, transform $dur-medium $ease-luxe;
+}
+
+.nav li {
+  position: relative;
+}
+
+.nav a {
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding-bottom: $space-2;
+  display: inline-flex;
+  align-items: center;
+  color: rgba($ink, 0.8);
+  transition: color $dur-quick $ease-snappy;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba($burgundy, 0.2), rgba($burgundy, 0.9));
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform $dur-medium $ease-luxe;
+}
+
+.nav a:hover::after,
+.nav a:focus-visible::after,
+.nav a.active::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.nav a:focus-visible {
+  @include focus-ring(rgba($burgundy, 0.5));
+}
+
+@include respond('md') {
+  .nav {
+    position: fixed;
+    inset: clamp(4.5rem, 10vh, 5.5rem) $space-3 auto;
+    right: $space-3;
+    background: rgba($cream, 0.98);
+    border-radius: $radius-lg;
+    padding: $space-6 $space-5;
+    flex-direction: column;
+    align-items: stretch;
+    gap: $space-4;
+    box-shadow: $shadow-luxe;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+  }
+
+  .nav.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav a {
+    font-size: 1rem;
+    padding-bottom: 0;
+  }
+}
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($ink, 0.4);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $dur-medium $ease-luxe, visibility $dur-medium $ease-luxe;
+  z-index: $z-overlay;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+main {
+  display: block;
 }

@@ -1,24 +1,77 @@
 body {
-  color: var(--ink);
-  font-family: 'Signika', sans-serif;
-  line-height: 1.6;
-  @include fluid-type(1rem, 1.125rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-  color: var(--burgundy);
-  letter-spacing: 0.02em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-heading;
+  font-weight: 600;
+  color: rgba($ink, 0.92);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 $space-5;
 }
 
-h1 { @include fluid-type(2.5rem, 3.5rem); }
-h2 { @include fluid-type(2rem, 3rem); }
-h3 { @include fluid-type(1.75rem, 2.5rem); }
-h4 { @include fluid-type(1.5rem, 2rem); }
-h5 { @include fluid-type(1.25rem, 1.5rem); }
-h6 { @include fluid-type(1rem, 1.25rem); }
+h1 { @include fluid-type(2.4rem, 4.2rem); }
+h2 { @include fluid-type(2rem, 3.3rem); }
+h3 { @include fluid-type(1.6rem, 2.6rem); }
+h4 { @include fluid-type(1.4rem, 2.1rem); }
+h5 { @include fluid-type(1.2rem, 1.6rem); }
+h6 { @include fluid-type(1.1rem, 1.3rem); }
+
+p,
+li,
+small,
+span,
+input,
+textarea,
+button {
+  font-family: $font-family;
+}
+
+.lead {
+  @include fluid-type(1.1rem, 1.35rem);
+  color: rgba($ink, 0.75);
+  max-width: 60ch;
+}
 
 .small-caps {
-  font-variant: all-small-caps;
-  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+
+.overline {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: rgba($burgundy, 0.6);
+}
+
+strong {
+  color: rgba($ink, 0.95);
+}
+
+blockquote {
+  margin: 0;
+  padding: $space-6 $space-7;
+  border-radius: $radius-lg;
+  background: rgba($white, 0.75);
+  position: relative;
+}
+
+blockquote::before {
+  content: '“';
+  position: absolute;
+  top: $space-3;
+  left: $space-4;
+  font-size: 4rem;
+  color: rgba($burgundy, 0.12);
 }

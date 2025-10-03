@@ -1,3 +1,31 @@
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:color';
+
+$breakpoints: (
+  'xs': $bp-xs,
+  'sm': $bp-sm,
+  'md': $bp-md,
+  'lg': $bp-lg,
+  'xl': $bp-xl
+);
+
+@mixin respond($point, $direction: 'max') {
+  $value: map.get($breakpoints, $point);
+  @if $value == null {
+    @error 'Unknown breakpoint: '#{$point};
+  }
+  @if $direction == 'min' {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $value) {
+      @content;
+    }
+  }
+}
+
 @mixin hide-visually {
   position: absolute !important;
   width: 1px;
@@ -10,20 +38,51 @@
   border: 0;
 }
 
-@mixin respond($break) {
-  @if $break == mobile {
-    @media (max-width: 600px) { @content; }
-  } @else if $break == tablet {
-    @media (max-width: 1024px) { @content; }
-  } @else if $break == desktop {
-    @media (min-width: 1025px) { @content; }
+@mixin focus-ring($color: rgba($burgundy, 0.6)) {
+  outline: 2px solid $color;
+  outline-offset: 3px;
+}
+
+@mixin fluid-type($min-size, $max-size, $min-vw: 360px, $max-vw: 1440px) {
+  font-size: clamp($min-size, calc(#{$min-size} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-vw}) / (#{$max-vw} - #{$min-vw}))), $max-size);
+}
+
+@mixin luxe-shadow($intensity: 1) {
+  $alpha-1: 0.08 * $intensity;
+  $alpha-2: 0.06 * $intensity;
+  box-shadow:
+    0 8px 18px rgba($burgundy, $alpha-1),
+    0 22px 44px rgba($burgundy, $alpha-2);
+}
+
+@mixin elevated-border($color: rgba($burgundy, 0.2)) {
+  box-shadow: inset 0 0 0 $border-width-hairline $color;
+}
+
+@mixin gradient-sheen($angle: 135deg, $strength: 0.35) {
+  background-image:
+    linear-gradient($angle, rgba($white, $strength) 0%, rgba($white, 0) 45%),
+    linear-gradient(180deg, rgba($burgundy, 0.08) 0%, rgba($burgundy, 0) 80%);
+}
+
+@mixin button-reset {
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+@mixin clamp-space($min, $max) {
+  padding-inline: clamp($min, 1.4vw, $max);
+}
+
+@mixin section-spacing($min: $space-7, $max: $space-9) {
+  padding-block: clamp($min, 8vw, $max);
+}
+
+@mixin hover-media {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
   }
-}
-
-@mixin fluid-type($min, $max) {
-  font-size: clamp($min, 1vw + $min, $max);
-}
-
-@mixin luxe-shadow {
-  box-shadow: 0 2px 4px rgba($burgundy,0.05), 0 8px 16px rgba($burgundy,0.08);
 }
