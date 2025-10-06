@@ -48,3 +48,8 @@
 - Redesigned hero, menu, about, testimonials, and contact sections with clamp-based sizing and mobile-first grids.
 - Upgraded navigation drawer, sticky header polish, and mobile overlay handling with improved accessibility hooks.
 - Refined JavaScript to manage snap scrolling, mobile nav state, and Swiper breakpoints while keeping custom cursor and reveal effects performant.
+
+## v1.2.1
+- Reimagined the menu page with filterable signature cards, responsive grid layout, and accessible hash-based quick filters.
+- Restored and enhanced the custom cursor so it trails smoothly on desktop pointers, honors reduced-motion, and reclaims focus scales on hover.
+- Added CSS hooks for `[hidden]` filtering states and tightened cursor visuals to keep the luxe feel consistent.

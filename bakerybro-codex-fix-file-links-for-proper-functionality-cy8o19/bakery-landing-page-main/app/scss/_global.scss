@@ -37,6 +37,10 @@ body {
   position: relative;
 }
 
+body.has-cursor {
+  cursor: none;
+}
+
 body.nav-open {
   overflow: hidden;
 }
@@ -67,6 +71,10 @@ button:disabled,
 [aria-disabled='true'] {
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 ul,

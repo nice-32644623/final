@@ -93,13 +93,15 @@
   height: 44px;
   border-radius: 50%;
   pointer-events: none;
-  border: 1px solid rgba($burgundy, 0.5);
-  box-shadow: 0 0 0 6px rgba($burgundy, 0.12);
-  mix-blend-mode: multiply;
+  border: 1px solid rgba($burgundy, 0.55);
+  box-shadow: 0 0 0 8px rgba($burgundy, 0.1), inset 0 0 12px rgba($burgundy, 0.12);
+  background: radial-gradient(circle at 30% 30%, rgba($white, 0.45), rgba($burgundy, 0.08));
+  mix-blend-mode: normal;
   transform: translate3d(-50%, -50%, 0);
   opacity: 0;
   z-index: $z-cursor;
   transition: opacity $dur-quick $ease-snappy;
+  will-change: transform, opacity;
 }
 
 .cursor-ring::after {
@@ -111,6 +113,12 @@
   border-radius: 50%;
   background: rgba($burgundy, 0.45);
   transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  @media (pointer: coarse) {
+    display: none;
+  }
 }
 
 .js-magnetic {

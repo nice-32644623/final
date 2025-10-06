@@ -89,3 +89,166 @@
     padding: $space-5 $space-3;
   }
 }
+
+.menu-list {
+  background: linear-gradient(180deg, rgba($cream, 0.92) 0%, rgba($cream, 0.78) 40%, rgba($cream, 0.92) 100%);
+}
+
+.menu-list__header {
+  max-width: 60ch;
+  margin-inline: auto;
+  text-align: center;
+  display: grid;
+  gap: $space-4;
+}
+
+.menu-list__title {
+  font-family: $font-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  @include fluid-type(2.2rem, 3.4rem);
+  color: $burgundy;
+}
+
+.menu-list__subtitle {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  color: rgba($ink, 0.7);
+  margin: 0;
+}
+
+.menu-filters {
+  margin-block: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-3;
+  position: relative;
+}
+
+.menu-filters__targets {
+  position: absolute;
+  inset: auto;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.menu-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: $border-width-hairline solid rgba($burgundy, 0.25);
+  background: rgba($white, 0.72);
+  color: rgba($burgundy, 0.72);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color $dur-quick $ease-snappy, background $dur-quick $ease-snappy, transform $dur-quick $ease-snappy, box-shadow $dur-quick $ease-snappy;
+}
+
+.menu-filter.is-active,
+.menu-filter:hover,
+.menu-filter:focus-visible {
+  color: $burgundy;
+  background: rgba($white, 0.95);
+  box-shadow: $shadow-soft;
+  transform: translateY(-2px);
+}
+
+.menu-filter:focus-visible {
+  @include focus-ring(rgba($burgundy, 0.45));
+}
+
+.menu-grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: stretch;
+}
+
+.menu-card {
+  background: rgba($white, 0.82);
+  border-radius: $radius-xl;
+  padding: clamp(1.4rem, 2.5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  position: relative;
+  box-shadow: $shadow-soft;
+  border: $border-width-hairline solid rgba($burgundy, 0.15);
+  min-height: 100%;
+}
+
+.menu-card__image {
+  position: relative;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: inset 0 0 0 $border-width-hairline rgba($burgundy, 0.18);
+  background: radial-gradient(circle at 20% 20%, rgba($white, 0.9), rgba($burgundy, 0.1));
+}
+
+.menu-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+.menu-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.menu-card__title {
+  font-family: $font-heading;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $burgundy;
+  margin: 0;
+}
+
+.menu-card__meta {
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba($ink, 0.6);
+  margin: 0;
+}
+
+.menu-card__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+}
+
+.menu-card__price {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba($burgundy, 0.85);
+}
+
+@include respond('sm') {
+  .menu-card {
+    padding: $space-4;
+  }
+
+  .menu-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-card__price {
+    font-size: 0.95rem;
+  }
+}
