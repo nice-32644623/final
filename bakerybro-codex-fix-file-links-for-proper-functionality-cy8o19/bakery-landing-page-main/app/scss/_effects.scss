@@ -1,0 +1,32 @@
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="n" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="2"/></filter><rect width="160" height="160" filter="url(%23n)" opacity="0.08"/></svg>');
+  mix-blend-mode: soft-light;
+  opacity: 0.6;
+}
+
+.velvet-surface {
+  background: linear-gradient(145deg, rgba($white, 0.8), rgba($cream, 0.6));
+  box-shadow: $shadow-soft;
+  backdrop-filter: blur(12px);
+}
+
+.glass-panel {
+  background: rgba($cream, 0.75);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+  border: $border-width-hairline solid rgba($burgundy, 0.18);
+}
+
+@media print, (prefers-reduced-motion: reduce) {
+  .grain-overlay::before {
+    display: none;
+  }
+}

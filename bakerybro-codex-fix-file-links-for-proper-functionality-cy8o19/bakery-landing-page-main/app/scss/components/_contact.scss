@@ -1,24 +1,44 @@
-@use "../abstracts/" as *;
-
 .contact {
-    text-align: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
 
-    &__title {
-        font-family: $font-heading;
-        font-size: 3rem;
-    }
+.contact__title {
+  font-family: $font-heading;
+  @include fluid-type(2.2rem, 3.2rem);
+  color: $burgundy;
+}
 
-    &__subtitle {
-        max-width: 600px;
-        margin: 1rem auto 2rem;
-        color: $txt-color;
-    }
+.contact__subtitle {
+  margin: 0 auto;
+  max-width: 45ch;
+  color: rgba($ink, 0.7);
+}
 
-    &__actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-4;
+}
+
+.contact__card {
+  margin: 0 auto;
+  max-width: 520px;
+  padding: clamp(2rem, 5vw, 3rem);
+  border-radius: $radius-xl;
+  background: rgba($white, 0.85);
+  box-shadow: $shadow-soft;
+}
+
+@include respond('xs') {
+  .contact__actions {
+    flex-direction: column;
+  }
+
+  .contact__actions .btn {
+    width: 100%;
+  }
 }
