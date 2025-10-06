@@ -53,3 +53,7 @@
 - Reimagined the menu page with filterable signature cards, responsive grid layout, and accessible hash-based quick filters.
 - Restored and enhanced the custom cursor so it trails smoothly on desktop pointers, honors reduced-motion, and reclaims focus scales on hover.
 - Added CSS hooks for `[hidden]` filtering states and tightened cursor visuals to keep the luxe feel consistent.
+
+## v1.2.2
+- Prevent menu hero slider from hijacking page scroll by ignoring wheel input while slides transition.
+- Add wheel input thresholding so hero, product, and menu carousels advance predictably on desktop scroll wheels.

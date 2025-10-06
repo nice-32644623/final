@@ -59,17 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const el = document.querySelector(selector);
             if (!el) return null;
             const swiper = new Swiper(el, opts);
-            el.addEventListener('wheel', e => {
-                if (!e.target.closest('.swiper-container-disabled')) {
-                    if (e.deltaY > 0 && !swiper.isEnd) {
-                        e.preventDefault();
-                        swiper.slideNext();
-                    } else if (e.deltaY < 0 && !swiper.isBeginning) {
-                        e.preventDefault();
-                        swiper.slidePrev();
-                    }
+            const threshold = typeof opts.wheelThreshold === 'number' ? Math.max(opts.wheelThreshold, 0) : 24;
+            const handleWheel = e => {
+                if (swiper.animating) return;
+                const delta = e.deltaY;
+                if (Math.abs(delta) < threshold) return;
+                if (delta > 0 && !swiper.isEnd) {
+                    e.preventDefault();
+                    swiper.slideNext();
+                } else if (delta < 0 && !swiper.isBeginning) {
+                    e.preventDefault();
+                    swiper.slidePrev();
                 }
-            }, { passive: false });
+            };
+            el.addEventListener('wheel', handleWheel, { passive: false });
             return swiper;
         };
 
