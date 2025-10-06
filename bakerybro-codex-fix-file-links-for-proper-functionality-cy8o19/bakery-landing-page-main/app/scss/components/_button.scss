@@ -1,43 +1,68 @@
-@use "../abstracts/" as *;
-
 .btn {
-    border: 0;
-    outline: 0;
-    background-color: $main-color;
-    color: $txt-white;
-    border-radius: $border-radius;
-    padding: 1.1rem 2.5rem;
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-family: $font-family;
-    box-shadow: 0 4px 23px 6px rgba($main-color, 0.6);
-    cursor: pointer;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    white-space: nowrap;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: 0.85rem 2.4rem;
+  border-radius: $radius-lg;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: $white;
+  background: linear-gradient(135deg, rgba($burgundy, 0.92), rgba($burgundy, 1));
+  box-shadow: $shadow-soft;
+  transition: transform $dur-quick $ease-snappy, box-shadow $dur-medium $ease-luxe, letter-spacing $dur-quick $ease-snappy;
+  overflow: hidden;
+}
 
-    &:hover {
-        box-shadow: 0 4px 23px 12px rgba($main-color, 0.6);
-        transform: translateY(-3px);
-    }
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba($white, 0.35), rgba($white, 0));
+  opacity: 0;
+  transition: opacity $dur-medium $ease-luxe;
+}
 
-    &-small {
-        font-size: 1.5rem;
-        padding: 0.5rem 1.5rem;
-    }
+@include hover-media {
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-luxe;
+  }
 
-    &-left {
-        border-top-left-radius: 0;
-    }
+  .btn:hover::after {
+    opacity: 1;
+  }
+}
 
-    &-right {
-        border-top-right-radius: 0;
-    }
+.btn:focus-visible {
+  @include focus-ring(rgba($white, 0.9));
+}
 
-    @include tablet {
-        font-size: 1.5rem;
-    }
+.btn-small {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.8rem;
+}
 
-    @include mobile {
-        padding: 0.5rem 2rem;
-    }
+.btn-glow {
+  box-shadow: 0 0 0 0 rgba($burgundy, 0.28);
+  animation: pulseGlow 7s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  70%,
+  100% {
+    box-shadow: 0 0 0 0 rgba($burgundy, 0.0);
+  }
+  35% {
+    box-shadow: 0 0 0 18px rgba($burgundy, 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-glow { animation: none; }
 }

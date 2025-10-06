@@ -1,0 +1,139 @@
+.link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 100%;
+  height: 1px;
+  background: rgba($burgundy, 0.5);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform $dur-medium $ease-luxe;
+}
+
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: 0.35rem 0.75rem;
+  border-radius: $radius-sm;
+  background: rgba($burgundy, 0.08);
+  color: rgba($burgundy, 0.8);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card {
+  border-radius: $radius-lg;
+  background: rgba($white, 0.82);
+  box-shadow: $shadow-soft;
+  padding: $space-6;
+  position: relative;
+  overflow: hidden;
+  transition: transform $dur-medium $ease-luxe, box-shadow $dur-medium $ease-luxe;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba($white, 0.3) 0%, rgba($white, 0) 70%);
+  opacity: 0;
+  transition: opacity $dur-medium $ease-luxe;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: $shadow-luxe;
+}
+
+.card:hover::after,
+.card:focus-within::after {
+  opacity: 1;
+}
+
+.btn-sheen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba($white, 0.4) 0%, rgba($white, 0) 55%);
+  opacity: 0;
+  transition: opacity $dur-medium $ease-luxe;
+}
+
+.btn-sheen:hover::before,
+.btn-sheen:focus-visible::before {
+  opacity: 1;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1px solid rgba($burgundy, 0.55);
+  box-shadow: 0 0 0 8px rgba($burgundy, 0.1), inset 0 0 12px rgba($burgundy, 0.12);
+  background: radial-gradient(circle at 30% 30%, rgba($white, 0.45), rgba($burgundy, 0.08));
+  mix-blend-mode: normal;
+  transform: translate3d(-50%, -50%, 0);
+  opacity: 0;
+  z-index: $z-cursor;
+  transition: opacity $dur-quick $ease-snappy;
+  will-change: transform, opacity;
+}
+
+.cursor-ring::after {
+  content: '';
+  position: absolute;
+  inset: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba($burgundy, 0.45);
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  @media (pointer: coarse) {
+    display: none;
+  }
+}
+
+.js-magnetic {
+  position: relative;
+  will-change: transform;
+  transition: transform $dur-medium $ease-luxe;
+}
+
+.u-tilt {
+  transition: transform $dur-medium $ease-luxe, box-shadow $dur-medium $ease-luxe;
+}
+
+@include hover-media {
+  .u-tilt:hover {
+    transform: rotate3d(0, 0, 1, 1.5deg) translateY(-4px);
+    box-shadow: $shadow-luxe;
+  }
+}
