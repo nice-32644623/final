@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="vendor/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./dist/style.css">
 </head>
-<body>
+<body class="menu-page">
     <header>
         <div class="header-inner container">
             <a href="index.html" class="logo">Diya Dilusso</a>
-            <div class="mobile-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M4 6h16v2H4zm4 5h12v2H8zm5 5h7v2h-7z"></path></svg>
-            </div>
+            <button type="button" class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M4 6h16v2H4zm0 5h16v2H4zm0 7h16v-2H4z"></path>
+                </svg>
+            </button>
             <ul class="nav">
                 <li><a href="index.html">Home</a></li>
                 <li class="active"><a href="menu.html">Menu</a></li>
@@ -24,53 +26,193 @@
         </div>
     </header>
 
-    <section class="menu">
-        <div class="container">
-            <div class="swiper menu-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="menu__slide">
-                            <div class="menu__slide__img">
-                                <img src="https://placehold.co/800x800?text=Cup+Cakes" alt="Cup cakes">
+    <main>
+        <section class="menu menu--feature snap-section" data-depth="-0.1" data-reveal>
+            <div class="container">
+                <div class="swiper menu-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="menu__slide">
+                                <div class="menu__slide__img">
+                                    <img src="https://placehold.co/800x800?text=Cup+Cakes" alt="Cup cakes" loading="lazy" decoding="async">
+                                </div>
+                                <h2 class="menu__slide__title">CUP CAKES</h2>
                             </div>
-                            <h2 class="menu__slide__title">CUP CAKES</h2>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="menu__slide">
+                                <div class="menu__slide__img">
+                                    <img src="https://placehold.co/800x800?text=Brownie" alt="Brownie" loading="lazy" decoding="async">
+                                </div>
+                                <h2 class="menu__slide__title">BROWNIE</h2>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="menu__slide">
+                                <div class="menu__slide__img">
+                                    <img src="https://placehold.co/800x800?text=Tea+Cakes" alt="Tea cakes" loading="lazy" decoding="async">
+                                </div>
+                                <h2 class="menu__slide__title">TEA CAKES</h2>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="menu__slide">
+                                <div class="menu__slide__img">
+                                    <img src="https://placehold.co/800x800?text=Sugar+Free" alt="Sugar free" loading="lazy" decoding="async">
+                                </div>
+                                <h2 class="menu__slide__title">SUGAR FREE</h2>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="menu__slide">
-                            <div class="menu__slide__img">
-                                <img src="https://placehold.co/800x800?text=Brownie" alt="Brownie">
-                            </div>
-                            <h2 class="menu__slide__title">BROWNIE</h2>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="menu__slide">
-                            <div class="menu__slide__img">
-                                <img src="https://placehold.co/800x800?text=Tea+Cakes" alt="Tea cakes">
-                            </div>
-                            <h2 class="menu__slide__title">TEA CAKES</h2>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="menu__slide">
-                            <div class="menu__slide__img">
-                                <img src="https://placehold.co/800x800?text=Sugar+Free" alt="Sugar free">
-                            </div>
-                            <h2 class="menu__slide__title">SUGAR FREE</h2>
-                        </div>
-                    </div>
+                    <div class="menu-pagination"></div>
                 </div>
-                <div class="menu-pagination"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div class="section section__footer snap-section" data-parallax="-0.1" data-animate>
+        <section class="menu-list snap-section" data-depth="-0.08" data-reveal="fade-up">
+            <div class="container">
+                <header class="menu-list__header" data-reveal="fade-up">
+                    <h1 class="menu-list__title">Menu</h1>
+                    <p class="menu-list__subtitle">Browse our signature collections and discover seasonal specials crafted for every celebration.</p>
+                </header>
+
+                <nav class="menu-filters" aria-label="Menu filters" data-filter-nav>
+                    <span class="menu-filters__targets" aria-hidden="true">
+                        <span id="filter-all"></span>
+                        <span id="filter-signature"></span>
+                        <span id="filter-sugar-free"></span>
+                        <span id="filter-eggless"></span>
+                        <span id="filter-seasonal"></span>
+                    </span>
+                    <a class="menu-filter is-active" href="#filter-all" data-filter="all">All</a>
+                    <a class="menu-filter" href="#filter-signature" data-filter="signature">Signature</a>
+                    <a class="menu-filter" href="#filter-sugar-free" data-filter="sugar-free">Sugar-free</a>
+                    <a class="menu-filter" href="#filter-eggless" data-filter="eggless">Eggless</a>
+                    <a class="menu-filter" href="#filter-seasonal" data-filter="seasonal">Seasonal</a>
+                </nav>
+
+                <div class="menu-grid" data-menu-grid>
+                    <article class="menu-card u-tilt" data-menu-item data-tags="signature seasonal">
+                        <div class="menu-card__image">
+                            <img src="https://placehold.co/600x600?text=Rose+Pistachio" alt="Rose pistachio entremet" loading="lazy" decoding="async">
+                        </div>
+                        <div class="menu-card__body">
+                            <h2 class="menu-card__title">Rose Pistachio Entremet</h2>
+                            <p class="menu-card__meta">Signature &middot; Seasonal</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">$32</span>
+                                <a class="btn btn-small btn-sheen js-magnetic" href="tel:+919999999999">Contact now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card u-tilt" data-menu-item data-tags="signature eggless">
+                        <div class="menu-card__image">
+                            <img src="https://placehold.co/600x600?text=Belgian+Mousse" alt="Belgian chocolate mousse" loading="lazy" decoding="async">
+                        </div>
+                        <div class="menu-card__body">
+                            <h2 class="menu-card__title">Belgian Chocolate Mousse</h2>
+                            <p class="menu-card__meta">Signature &middot; Eggless</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">$28</span>
+                                <a class="btn btn-small btn-sheen js-magnetic" href="tel:+919999999999">Contact now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card u-tilt" data-menu-item data-tags="sugar-free eggless">
+                        <div class="menu-card__image">
+                            <img src="https://placehold.co/600x600?text=No+Sugar+Almond" alt="No sugar almond cake" loading="lazy" decoding="async">
+                        </div>
+                        <div class="menu-card__body">
+                            <h2 class="menu-card__title">No Sugar Almond Cake</h2>
+                            <p class="menu-card__meta">Sugar-free &middot; Eggless</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">$26</span>
+                                <a class="btn btn-small btn-sheen js-magnetic" href="tel:+919999999999">Contact now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card u-tilt" data-menu-item data-tags="seasonal">
+                        <div class="menu-card__image">
+                            <img src="https://placehold.co/600x600?text=Mango+Tres+Leches" alt="Mango tres leches cake" loading="lazy" decoding="async">
+                        </div>
+                        <div class="menu-card__body">
+                            <h2 class="menu-card__title">Mango Tres Leches</h2>
+                            <p class="menu-card__meta">Seasonal</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">$30</span>
+                                <a class="btn btn-small btn-sheen js-magnetic" href="tel:+919999999999">Contact now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card u-tilt" data-menu-item data-tags="signature">
+                        <div class="menu-card__image">
+                            <img src="https://placehold.co/600x600?text=Hazelnut+Opera" alt="Hazelnut opera cake" loading="lazy" decoding="async">
+                        </div>
+                        <div class="menu-card__body">
+                            <h2 class="menu-card__title">Hazelnut Opera Cake</h2>
+                            <p class="menu-card__meta">Signature</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">$34</span>
+                                <a class="btn btn-small btn-sheen js-magnetic" href="tel:+919999999999">Contact now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card u-tilt" data-menu-item data-tags="eggless">
+                        <div class="menu-card__image">
+                            <img src="https://placehold.co/600x600?text=Berry+Shortcake" alt="Berry shortcake" loading="lazy" decoding="async">
+                        </div>
+                        <div class="menu-card__body">
+                            <h2 class="menu-card__title">Berry Shortcake</h2>
+                            <p class="menu-card__meta">Eggless</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">$24</span>
+                                <a class="btn btn-small btn-sheen js-magnetic" href="tel:+919999999999">Contact now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card u-tilt" data-menu-item data-tags="sugar-free seasonal">
+                        <div class="menu-card__image">
+                            <img src="https://placehold.co/600x600?text=Citrus+Cloud" alt="Citrus cloud tart" loading="lazy" decoding="async">
+                        </div>
+                        <div class="menu-card__body">
+                            <h2 class="menu-card__title">Citrus Cloud Tart</h2>
+                            <p class="menu-card__meta">Sugar-free &middot; Seasonal</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">$22</span>
+                                <a class="btn btn-small btn-sheen js-magnetic" href="tel:+919999999999">Contact now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card u-tilt" data-menu-item data-tags="signature sugar-free">
+                        <div class="menu-card__image">
+                            <img src="https://placehold.co/600x600?text=Midnight+Ganache" alt="Midnight ganache tart" loading="lazy" decoding="async">
+                        </div>
+                        <div class="menu-card__body">
+                            <h2 class="menu-card__title">Midnight Ganache Tart</h2>
+                            <p class="menu-card__meta">Signature &middot; Sugar-free</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">$29</span>
+                                <a class="btn btn-small btn-sheen js-magnetic" href="tel:+919999999999">Contact now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section section__footer snap-section" data-depth="-0.1" data-reveal>
         <div class="container">
             <footer class="footer">
                 <div class="footer__logo">
-                    <img src="https://placehold.co/200x80?text=Diya+Dilusso+logo" alt="Diya Dilusso logo">
+                    <img src="https://placehold.co/200x80?text=Diya+Dilusso+logo" alt="Diya Dilusso logo" loading="lazy" decoding="async">
                 </div>
                 <nav class="footer__nav">
                     <a href="index.html">Home</a>

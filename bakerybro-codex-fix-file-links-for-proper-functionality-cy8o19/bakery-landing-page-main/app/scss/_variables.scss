@@ -1,0 +1,65 @@
+@use 'sass:color';
+
+$cream: #fff9f5;
+$burgundy: #8c1c13;
+$ink: #000000;
+$white: #ffffff;
+
+$rose-50: color.mix($cream, $burgundy, $weight: 92%);
+$rose-100: color.mix($cream, $burgundy, $weight: 85%);
+$rose-200: color.mix($cream, $burgundy, $weight: 70%);
+
+:root {
+  --cream: #fff9f5;
+  --burgundy: #8c1c13;
+  --ink: #000000;
+  --white: #ffffff;
+  --burgundy-rgb: 140, 28, 19;
+  --cream-rgb: 255, 249, 245;
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snappy: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-quick: 180ms;
+  --dur-medium: 520ms;
+  --dur-slow: 880ms;
+}
+
+$ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-snappy: cubic-bezier(0.4, 0, 0.2, 1);
+$dur-quick: 180ms;
+$dur-medium: 520ms;
+$dur-slow: 880ms;
+
+$space-0: 0;
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.5rem;
+$space-6: 2rem;
+$space-7: 3rem;
+$space-8: 4rem;
+$space-9: 5rem;
+
+$radius-xs: 0.35rem;
+$radius-sm: 0.75rem;
+$radius-md: 1.25rem;
+$radius-lg: 1.75rem;
+$radius-xl: 2.75rem;
+
+$border-width-hairline: 0.5px;
+$shadow-soft: 0 12px 30px rgba($burgundy, 0.08);
+$shadow-luxe: 0 8px 20px rgba($burgundy, 0.08), 0 24px 40px rgba($burgundy, 0.06);
+$shadow-lifted: 0 20px 45px rgba($burgundy, 0.12);
+
+$z-header: 80;
+$z-overlay: 70;
+$z-cursor: 999;
+
+$bp-xs: 480px;
+$bp-sm: 600px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+$font-family: "Signika", sans-serif;
+$font-heading: "Playfair Display", serif;

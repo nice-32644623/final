@@ -1,53 +1,254 @@
-@use "../abstracts/" as *;
-
 .menu {
-    background-image: $bg-linear;
+  background: linear-gradient(180deg, rgba($cream, 0.95) 0%, rgba($cream, 0.7) 100%);
+}
 
-    .swiper {
-        height: 100vh;
+.menu .swiper {
+  width: 100%;
+  height: clamp(420px, 70vh, 600px);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
 
-        .menu__slide {
-            @include flex(center, center);
-            flex-direction: column;
-            text-align: center;
-            height: 100%;
-            gap: 2rem;
+.menu .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 6vw, 4rem);
+}
 
-            &__img {
-                width: 60%;
-                max-width: 600px;
-                aspect-ratio: 1 / 1;
-                background: #ccc;
-                margin: 0 auto;
+.menu__slide {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 320px);
+  gap: clamp(2rem, 6vw, 4rem);
+  width: 100%;
+}
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                }
-            }
+.menu__slide__img {
+  position: relative;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at 20% 20%, rgba($white, 0.9), rgba($burgundy, 0.12));
+  box-shadow: $shadow-soft;
+}
 
-            &__title {
-                font-family: $font-heading;
-                font-size: 4rem;
-                color: $main-color;
+.menu__slide__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
 
-                @include mobile {
-                    font-size: 2.5rem;
-                }
-            }
-        }
+.menu__slide__title {
+  font-family: $font-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: $burgundy;
+}
 
-        .swiper-pagination-bullet {
-            width: 15px;
-            height: 15px;
-            background-color: #ccc;
-            opacity: 1;
+.menu .swiper-pagination {
+  position: static;
+  display: flex;
+  justify-content: center;
+  gap: $space-3;
+}
 
-            &-active {
-                background-color: $main-color;
-            }
-        }
-    }
+.menu .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba($burgundy, 0.26);
+  opacity: 1;
+  transition: transform $dur-medium $ease-luxe, background $dur-medium $ease-luxe;
+}
+
+.menu .swiper-pagination-bullet-active {
+  background: rgba($burgundy, 0.9);
+  transform: scale(1.25);
+}
+
+@include respond('md') {
+  .menu__slide {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .menu__slide__img {
+    width: min(75vw, 320px);
+    margin-inline: auto;
+  }
+}
+
+@include respond('xs') {
+  .menu .swiper {
+    height: auto;
+  }
+
+  .menu .swiper-slide {
+    padding: $space-5 $space-3;
+  }
+}
+
+.menu-list {
+  background: linear-gradient(180deg, rgba($cream, 0.92) 0%, rgba($cream, 0.78) 40%, rgba($cream, 0.92) 100%);
+}
+
+.menu-list__header {
+  max-width: 60ch;
+  margin-inline: auto;
+  text-align: center;
+  display: grid;
+  gap: $space-4;
+}
+
+.menu-list__title {
+  font-family: $font-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  @include fluid-type(2.2rem, 3.4rem);
+  color: $burgundy;
+}
+
+.menu-list__subtitle {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  color: rgba($ink, 0.7);
+  margin: 0;
+}
+
+.menu-filters {
+  margin-block: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-3;
+  position: relative;
+}
+
+.menu-filters__targets {
+  position: absolute;
+  inset: auto;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.menu-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: $border-width-hairline solid rgba($burgundy, 0.25);
+  background: rgba($white, 0.72);
+  color: rgba($burgundy, 0.72);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color $dur-quick $ease-snappy, background $dur-quick $ease-snappy, transform $dur-quick $ease-snappy, box-shadow $dur-quick $ease-snappy;
+}
+
+.menu-filter.is-active,
+.menu-filter:hover,
+.menu-filter:focus-visible {
+  color: $burgundy;
+  background: rgba($white, 0.95);
+  box-shadow: $shadow-soft;
+  transform: translateY(-2px);
+}
+
+.menu-filter:focus-visible {
+  @include focus-ring(rgba($burgundy, 0.45));
+}
+
+.menu-grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: stretch;
+}
+
+.menu-card {
+  background: rgba($white, 0.82);
+  border-radius: $radius-xl;
+  padding: clamp(1.4rem, 2.5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  position: relative;
+  box-shadow: $shadow-soft;
+  border: $border-width-hairline solid rgba($burgundy, 0.15);
+  min-height: 100%;
+}
+
+.menu-card__image {
+  position: relative;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: inset 0 0 0 $border-width-hairline rgba($burgundy, 0.18);
+  background: radial-gradient(circle at 20% 20%, rgba($white, 0.9), rgba($burgundy, 0.1));
+}
+
+.menu-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+.menu-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.menu-card__title {
+  font-family: $font-heading;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $burgundy;
+  margin: 0;
+}
+
+.menu-card__meta {
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba($ink, 0.6);
+  margin: 0;
+}
+
+.menu-card__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+}
+
+.menu-card__price {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba($burgundy, 0.85);
+}
+
+@include respond('sm') {
+  .menu-card {
+    padding: $space-4;
+  }
+
+  .menu-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-card__price {
+    font-size: 0.95rem;
+  }
 }
